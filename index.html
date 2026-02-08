@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>For You</title>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400&display=swap"
+        rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #F8F6F3;
+            color: #2B2B2B;
+            scroll-behavior: smooth;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 80px 10%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .center {
+            max-width: 800px;
+            width: 100%;
+            text-align: center;
+        }
+
+        h1,
+        h2 {
+            font-family: 'Playfair Display', serif;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 4rem;
+        }
+
+        h2 {
+            font-size: 2.8rem;
+        }
+
+        p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            margin-top: 10px;
+        }
+
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(135deg, #E8B4BC, #F8F6F3);
+        }
+
+        .hero h1 {
+            color: #6D2E46;
+        }
+
+        /* MESSAGE */
+        .message {
+            background: #fff;
+        }
+
+        /* GALLERY */
+        .gallery {
+            background: #6D2E46;
+            color: #fff;
+        }
+
+        .images {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .images img {
+            width: 100%;
+            border-radius: 22px;
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.35);
+            animation: fadeUp 1s ease forwards;
+            opacity: 0;
+            object-fit: cover;
+        }
+
+        .images img:nth-child(1) {
+            animation-delay: 0.2s;
+        }
+
+        .images img:nth-child(2) {
+            animation-delay: 0.4s;
+        }
+
+        .images img:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        .images img:nth-child(4) {
+            animation-delay: 0.8s;
+        }
+
+        @keyframes fadeUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* LETTER */
+        .letter {
+            background: #F8F6F3;
+        }
+
+        /* QUESTION */
+        .question {
+            background: linear-gradient(135deg, #6D2E46, #2B2B2B);
+            color: #fff;
+            transition: opacity 1.5s cubic-bezier(0.22, 1, 0.36, 1),
+                filter 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .question.fade h1,
+        .question.fade h2,
+        .question.fade .buttons {
+            opacity: 0;
+            filter: blur(10px);
+            transition: 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .buttons {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            height: 120px;
+        }
+
+
+        button {
+            padding: 14px 38px;
+            font-size: 1.1rem;
+            border-radius: 40px;
+            border: none;
+            cursor: pointer;
+        }
+
+        #yes {
+            background: #C9A24D;
+            color: #2B2B2B;
+            font-weight: 600;
+            box-shadow: 0 10px 25px rgba(201, 162, 77, 0.4);
+        }
+
+        #no {
+            position: absolute;
+            left: 140px;
+            background: transparent;
+            border: 2px solid #fff;
+            color: #fff;
+        }
+
+        /* SAD RESPONSE */
+        .response {
+            margin-top: 40px;
+            font-size: 1.5rem;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .response.show {
+            opacity: 1;
+        }
+
+        /* FINAL MESSAGE */
+        .final-response {
+            margin-top: 100px;
+            opacity: 0;
+            transition: opacity 1s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+
+        .final-response.show {
+            opacity: 1;
+        }
+
+        .final-response::before {
+            content: "✨";
+            display: block;
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .final-response div {
+            font-size: 1.8rem;
+            font-family: 'Playfair Display', serif;
+            color: #fbfbfb;
+            line-height: 1.6;
+        }
+
+        /* PARTING */
+        .parting {
+            background: linear-gradient(135deg, #E8B4BC, #F8F6F3);
+            opacity: 0;
+            transition: opacity 1.5s ease 1.5s;
+        }
+
+        .parting.show {
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="hero">
+        <div class="center">
+            <h1>Hi Shrutiii.</h1>
+            <p>This isn’t a Valentine’s page.
+                It’s just something I wanted you to see.</p>
+        </div>
+    </section>
+
+    <section class="message">
+        <div class="center">
+            <h2>Before anything else</h2>
+            <p>I don’t really believe in Valentine’s Day.</p>
+            <p>But I believe in you.</p>
+            <p>I hope you win everywhere life takes you.</p>
+        </div>
+    </section>
+
+    <section class="gallery">
+        <div class="center">
+            <h2>Some moments I like</h2>
+            <div class="images">
+                <img src="img1.jpg">
+                <img src="img2.jpg">
+                <img src="img3.jpg">
+                <img src="img4.jpg">
+            </div>
+        </div>
+    </section>
+
+    <section class="letter">
+        <div class="center">
+            <h2>A little honesty</h2>
+            <p>You make things feel lighter.</p>
+            <p>You make silence comfortable.</p>
+            <p>You don’t try to be extraordinary — and somehow that’s exactly what you are.</p>
+        </div>
+    </section>
+
+    <section class="question">
+        <div class="center">
+            <h2>So…</h2>
+            <h1>Will you be my Valentine?</h1>
+
+            <div class="buttons">
+                <button id="yes">Yes</button>
+                <button id="no">No</button>
+            </div>
+
+            <div id="res" class="response"></div>
+
+            <div class="final-response" id="finalResponse">
+                <div>
+                    That’s my favorite answer 🤍<br>
+                    Door hai, par dil ke behad kareeb 😘
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="parting">
+        <div class="center">
+            <h2>Until we meet again,</h2>
+            <p>Keep shining the way you do 💫</p>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <script>
+        const noBtn = document.getElementById("no");
+        const yesBtn = document.getElementById("yes");
+        const res = document.getElementById("res");
+        const question = document.querySelector(".question");
+        const finalResponse = document.getElementById("finalResponse");
+        const parting = document.querySelector(".parting");
+        const buttons = document.querySelector(".buttons");
+
+        const sadMessages = [
+            "😢 That option feels lonely…",
+            "🥺 Are you sure? The other one smiles back.",
+            "💔 That doesn’t feel right…",
+            "🙈 Try the other button?"
+        ];
+
+        let sadIndex = 0;
+
+        function moveNo() {
+            const maxX = buttons.offsetWidth - noBtn.offsetWidth;
+            const maxY = buttons.offsetHeight - noBtn.offsetHeight;
+            noBtn.style.left = Math.random() * maxX + "px";
+            noBtn.style.top = Math.random() * maxY + "px";
+        }
+
+        noBtn.addEventListener("mouseenter", moveNo);
+        noBtn.addEventListener("click", e => {
+            e.preventDefault();
+            moveNo();
+            res.classList.add("show");
+            res.innerHTML = sadMessages[sadIndex++ % sadMessages.length];
+        });
+
+        yesBtn.addEventListener("click", () => {
+            question.classList.add("fade");
+            res.classList.remove("show");
+
+            setTimeout(() => {
+                finalResponse.classList.add("show");
+                finalResponse.scrollIntoView({ behavior: "smooth", block: "center" });
+            }, 600);
+
+            setTimeout(() => {
+                parting.classList.add("show");
+            }, 2000);
+
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 }
+            });
+        });
+    </script>
+
+</body>
+
+</html>
